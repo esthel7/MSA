@@ -3,4 +3,4 @@ FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
 [ -z "$FILES" ] && exit 0
 
 echo "$FILES"
-echo "✨ Prettier Before Commit" && npx lint-staged
+echo "✨ Prettier Before Commit" && cd main && npx lint-staged && cd ../sub && npx lint-staged && cd ../
