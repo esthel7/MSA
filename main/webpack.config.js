@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
+  mode: 'development',
   output: {
     path: path.resolve(__dirname, 'build')
   },
@@ -14,7 +15,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'index.html'
+      template: './public/index.html'
     }),
     new ModuleFederationPlugin({
       name: 'main',
@@ -27,8 +28,20 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|tsx)$/i,
-        loader: 'ts-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react', '@babel/preset-typescript']
+            }
+          },
+          'ts-loader'
+        ],
         exclude: ['/node_modules/']
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
