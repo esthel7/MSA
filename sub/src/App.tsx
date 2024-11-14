@@ -4,9 +4,9 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <img src={heart} className="App-logo" alt="logo" />
-      <h3>This is sub.</h3>
+    <div className="Sub">
+      <img src={heart} className="Sub-logo" alt="logo" />
+      <h3 className="Sub-text">This is sub.</h3>
     </div>
   );
 }

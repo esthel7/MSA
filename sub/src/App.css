@@ -2,18 +2,19 @@ body {
   margin: 0;
 }
 
-.App {
+.Sub {
+  margin: 0;
   text-align: center;
   min-height: 100vh;
   background-color: #282c34;
 }
 
-.App-logo {
+.Sub-logo {
   margin-top: 5vh;
   height: 20vmin;
   pointer-events: none;
 }
 
-h3 {
+.Sub-text {
   color: white;
 }
